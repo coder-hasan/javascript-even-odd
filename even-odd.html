@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Even & Odd generator</title>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+        body{
+            margin: 0 auto;
+            padding: 100px 0 0 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        form{
+            margin: 0 auto;
+            width: 500px;
+            text-align: center;
+        }
+
+        #result{
+            padding: 20px 0 0 0;
+            margin: 0 auto;
+            width: 500px;
+            text-align: center;
+        }
+
+        p{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <input type="number" name="input">
+        <button type="submit" name="submit">Submit</button>
+    </form>
+    <div id="result">
+        <p id="even"></p>
+        <p id="odd"></p>
+    </div>
+    <script>
+        var form = document.getElementById('form');
+        var domEven = document.getElementById('even');
+        var domOdd = document.getElementById('odd');
+
+        var submitButton = form.submit
+        var evenList = [];
+        var oddList = [];
+
+
+        submitButton.addEventListener('click', function(e) {
+            e.preventDefault()
+            var input = parseInt(form.input.value)
+            for (i = 0; i <= input; i++) {
+                if ((i % 2) == 0){
+                    // Even
+                    evenList.push(i);
+                }
+                else{
+                    // Odd
+                    oddList.push(i) ;
+                }
+            }
+            console.log(evenList, oddList);
+            domEven.innerText = "Even: " + evenList
+            domOdd.innerText = "Odd: " + oddList
+        });
+
+      
+
+    </script>
+</body>
+</html>
